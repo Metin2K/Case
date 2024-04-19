@@ -28,7 +28,7 @@ export default StyleSheet.create({
     borderRadius: 4,
     width: 150,
     height: 36,
-    marginTop: 20,
+    marginTop: 10,
   },
   button: {
     color: 'white',

@@ -1,5 +1,5 @@
 import {Image, View, Text, TouchableOpacity} from 'react-native';
-import React, {useLayoutEffect} from 'react';
+import React, {useEffect} from 'react';
 import styles from './Detail.style';
 import useFetch from '../../hooks/useFetch';
 import Config from 'react-native-config';
@@ -8,6 +8,13 @@ import {useNavigation} from '@react-navigation/native';
 const Details = ({route}) => {
   const {id} = route.params;
   const {loading, error, data} = useFetch(`${Config.API_URL}/${id}`);
+  const navigation = useNavigation();
+
+  useEffect(() => {
+    navigation.setOptions({
+      headerTitle: data.name,
+    });
+  }, [navigation, data]);
 
   return (
     <View style={styles.container}>
